@@ -7,9 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.rtl.min.css"
+    integrity="sha384-gXt9imSW0VcJVHezoNQsP+TNrjYXoGcrqBZJpry9zJt8PCQjobwmhMGaDHTASo9N" crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
-  <link rel="stylesheet" href="css/aos.css" />
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
   <link rel="stylesheet" href="css/main.css" />
   <script defer src="https://unpkg.com/alpinejs@3.3.4/dist/cdn.min.js"></script>
@@ -17,418 +18,424 @@
   <title>PLANTS CARE</title>
 </head>
 
-<body>
+<body onload="preloaderFunction()">
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
 
-  
-    <!-- HEADER -->
-    <header x-data="{ navShow : false }" @scroll.window="navShow = window.scrollY > 100 ? true : false ">
-      <nav class="header navbar navbar-expand-lg navbar-light fixed-top" :class="{'header-scrolled' : navShow}">
-        <div class="container">
-          <a class="navbar-brand text-success" href="#">PLANTS CARE</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <!-- HEADER -->
+  <header x-data="{ navShow : false }" @scroll.window="navShow = window.scrollY > 100 ? true : false ">
+    <nav class="header navbar navbar-expand-lg navbar-light fixed-top" :class="{'header-scrolled' : navShow}">
+      <div class="container">
+        <a class="navbar-brand text-success" href="#">PLANTS CARE</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active text-success" aria-current="page" href="#">صفحه اصلی</a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#Services" id="navbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                خدمات
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#Services">کاشت</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" href="#Services">آبیاری</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item" href="#Services">نگهداری</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#About_Us">درباره ما</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contact_Us">تماس با ما</a>
+            </li>
+          </ul>
+          <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">
+              جستجو
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- Banner -->
+  <section class="banner">
+    <div class="container">
+      <div class="row text-center pt-5">
+        <div class="col sm-12 pt-md-5 pt-sm-0">
+          <h3 data-aos="fade-up" class="fw-bold text-success pt-5">
+            خدمات کامل مراقبت از گیاهان
+          </h3>
+          <p data-aos="fade-up" data-aos-delay="400">
+            در اینجا خدمات کامل و جامعی را برای مراقبت از گیاهان ارائه می دهیم
+          </p>
+          <button class="btn btn-success hover-grow" data-aos="fade-up" data-aos-delay="500">
+            بیشتر
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active text-success" aria-current="page" href="#">صفحه اصلی</a>
-              </li>
-
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#Services" id="navbarDropdown" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false">
-                  خدمات
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#Services">کاشت</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item" href="#Services">آبیاری</a></li>
-                  <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#Services">نگهداری</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#About_Us">درباره ما</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#Contact_Us">تماس با ما</a>
-              </li>
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="جستجو" aria-label="Search" />
-              <button class="btn btn-outline-success" type="submit">
-                جستجو
-              </button>
-            </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Info -->
+  <section class="counts my-5">
+    <div class="container">
+      <div class="row gy-2">
+        <div class="col-md-6 col-xl-3 col-12">
+          <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
+            <i class="bi bi-emoji-smile me-3 text-white"></i>
+            <div>
+              <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
+                data-purecounter-end="9001">0</span>
+              <p class="text-white">مشتری راضی</p>
+            </div>
           </div>
         </div>
-      </nav>
-    </header>
-    <!-- Banner -->
-    <section class="banner">
-      <div class="container">
-        <div class="row text-center pt-5">
-          <div class="col sm-12 pt-md-5 pt-sm-0">
-            <h3 data-aos="fade-up" class="fw-bold text-success pt-5">
-              خدمات کامل مراقبت از گیاهان
-            </h3>
-            <p data-aos="fade-up" data-aos-delay="400">
-              در اینجا خدمات کامل و جامعی را برای مراقبت از گیاهان ارائه می دهیم
+        <div class="col-md-6 col-xl-3 col-12">
+          <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
+            <i class="bi bi-reception-4  text-white"></i>
+            <div>
+              <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
+                data-purecounter-end="1800">0</span>
+              <p class="text-white">پروژه در حال انجام</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3 col-12">
+          <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
+            <i class="bi bi-award-fill me-3 text-white"></i>
+            <div>
+              <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
+                data-purecounter-end="500">0</span>
+              <p class="text-white">برنده جایزه</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3 col-12">
+          <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
+            <i class="bi bi-calendar-check-fill me-3 text-white"></i>
+            <div>
+              <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
+                data-purecounter-end="600">0</span>
+              <p class="text-white">پروژه های انجام شده</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Services -->
+  <section id="Services">
+    <div class="container">
+      <div class="row my-5 text-center">
+        <h4 class="fw-bold" data-aos="zoom-out">خدمات ارائه شده</h4>
+      </div>
+      <div class="row g-2">
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
+            data-aos-delay="5">
+            <img src="images/services/1.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">کاشت</h5>
+              <p class="card-text">
+                ما آماده کاشت هر گونه گیاه مورد علاقه شما هستیم
+              </p>
+              <a href="#" class="btn btn-success">بیشتر</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
+            data-aos-delay="5">
+            <img src="images/services/2.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">آبیاری</h5>
+              <p class="card-text">
+                ما آبیاری گیاهان را به طور منظم انجام می دهیم
+              </p>
+              <a href="#" class="btn btn-success">بیشتر</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
+            data-aos-delay="5">
+            <img src="images/services/3.jpg" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <h5 class="card-title">نگهداری</h5>
+              <p class="card-text">
+                اقدامات لازم را برای نگهداری از گیاهان انجام می دهیم
+              </p>
+              <a href="#" class="btn btn-success">بیشتر</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Project Finished -->
+  <section class="overflow-hidden text-center">
+    <div class="container">
+      <div class="row my-5">
+        <h4 class="fw-bold" data-aos="zoom-out">پروژه های انجام شده</h4>
+      </div>
+      <div class="row g-2">
+        <div class="col-md-4 hover-grow">
+          <img src="./images/project finished/1.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid" alt="" />
+        </div>
+        <div class="col-md-4 hover-grow">
+          <img src="./images/project finished/2.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid" alt="" />
+        </div>
+        <div class="col-md-4 hover-grow">
+          <img src="./images/project finished/4.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid" alt="" />
+        </div>
+      </div>
+      <button class="btn btn-success hover-grow my-4" data-aos="fade-up" data-aos-delay="100">
+        مشاهده همه
+      </button>
+    </div>
+  </section>
+  <!-- About us -->
+  <section class="overflow-hidden" id="About_Us">
+    <div class="container">
+      <div class="row my-5 text-center">
+        <h4 class="fw-bold" data-aos="zoom-out">درباره ما</h4>
+      </div>
+      <div class="row d-flex align-items-center">
+        <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+          <img src="./images/About us/1.jpg" alt="About us" class="img-fluid rounded-circle pic-about" />
+        </div>
+        <div class="col-md-6" data-aos="fade-right" data-aos-delay="400">
+          <div class="row">
+            <h4 class="navbar-brand fs-2 text-center" href="#">
+              PLANTS CARE
+            </h4>
+            <p class="text-start">
+              ما در این مجموعه عملیات کاشت، آبیاری و انواع اقدامات لازم برای
+              .نگهداری گیاهان می پردازیم تمامی عملیاتی که برای نگهداری گیاهان
+              انجام می شود بر طبق استانداردهای لازم انجام می شود.
             </p>
-            <button class="btn btn-success hover-grow" data-aos="fade-up" data-aos-delay="500">
-              بیشتر
+            <p class="text-start">
+              .در این مجموعه بیش از 50 پروژه موفق داشته ایم ما آماده ارائه
+              انواع خدمات برای گیاهانتان هستیم از کاشت گیاهان تا مراقبت از آن
+              ها را انجام می دهیم
+            </p>
+            <p class="text-start">
+              ما این اطمینان را به شما می دهیم که بهترین خدمات را به شما ارائه
+              دهیم حتی در صورت تمایلتان می توانیم به صورت حضوری در منزلتان به
+              ارائه خدمات بپردازیم.
+            </p>
+            <p class="text-start">
+              به ما اعتماد کنیم و بهترین خدمات را از ما دریافت کنید
+            </p>
+            <div class="col-12 text-center">
+              <button class="btn btn-success hover-grow">بیشتر</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Comments -->
+  <section class="comments d-flex align-items-center  mt-5">
+
+    <div class="container  my-5 ">
+      <div class="row text-success text-center">
+        <h1 class="fs-3 fw-bold"> نظرات کاربران </h1>
+      </div>
+      <div class="row">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-card rounded text-center p-4">
+                <img width="120" class="img-fluid rounded-circle" src="./images/comments/1.jpg" alt="">
+                <div class="mt-3">
+                  <h4 class="fw-bold">لورم ایپسوم</h4>
+                </div>
+                <p class="lh-lg">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                </p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-card rounded text-center p-4">
+                <img width="120" class="img-fluid rounded-circle" src="./images/comments/2.jpg" alt="">
+                <div class="mt-3">
+                  <h4 class="fw-bold">لورم ایپسوم</h4>
+                </div>
+                <p class="lh-lg">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                </p>
+              </div>
+            </div>
+
+            <div class="carousel-item">
+              <div class="carousel-card rounded text-center p-4">
+                <img width="120" class="img-fluid rounded-circle" src="./images/comments/3.jpg" alt="">
+                <div class="mt-3">
+                  <h4 class="fw-bold">لورم ایپسوم</h4>
+                </div>
+                <p class="lh-lg">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
+                  گرافیک است.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-buttons text-center mt-4">
+            <button class="btn btn-outline-success" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev">
+              <i class="bi bi-arrow-right"></i>
+            </button>
+            <button class="btn btn-outline-success me-2" type="button" data-bs-target="#carouselExampleControls"
+              data-bs-slide="next">
+              <i class="bi bi-arrow-left"></i>
             </button>
           </div>
         </div>
       </div>
-    </section>
-    <!-- Info -->
-    <section class="counts my-5">
-      <div class="container">
-        <div class="row gy-2">
-          <div class="col-md-6 col-xl-3 col-12">
-            <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
-              <i class="bi bi-emoji-smile me-3 text-white"></i>
-              <div>
-                <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
-                  data-purecounter-end="9001">0</span>
-                <p class="text-white">مشتری راضی</p>
-              </div>
+    </div>
+  </section>
+  <!-- Contacts -->
+  <section class="bg-success d-flex align-items-center" id="Contact_Us">
+    <div class="container bg-light my-5 p-5 rounded-3">
+      <div class="row text-success text-center">
+        <h1 class="fs-3 fw-bold"> تماس با ما </h1>
+      </div>
+      <div class="row">
+        <form action="#" class="contact-form">
+          <div class="row  gy-4">
+            <div class="col-md-6">
+              <label class="form-label">نام</label>
+              <input class="form-control" type="text">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label">ایمیل</label>
+              <input class="form-control" type="email">
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">موضوع</label>
+              <input class="form-control" type="email">
+            </div>
+
+            <div class="col-md-12">
+              <label class="form-label">متن پیام</label>
+              <textarea class="form-control" rows="2"></textarea>
+            </div>
+
+            <div class="col-md-12 text-center my-5">
+              <button class="btn btn-success hover-grow">ارسال پیام</button>
             </div>
           </div>
-          <div class="col-md-6 col-xl-3 col-12">
-            <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
-              <i class="bi bi-reception-4 me-3 text-white"></i>
-              <div>
-                <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
-                  data-purecounter-end="1800">0</span>
-                <p class="text-white">پروژه در حال انجام</p>
-              </div>
-            </div>
+        </form>
+
+      </div>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer class="footer bg-light">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-5">
+          <h4 class="navbar-brand text-success fs-3" href="#">PLANTS CARE</h4>
+          <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
+          <div class="social-links">
+            <a href="#"><i class="bi bi-twitter text-success"></i></a>
+            <a class="mx-2" href="#"><i class="bi bi-facebook text-success"></i></a>
+            <a href="#"><i class="bi bi-instagram text-success"></i></a>
+            <a class="mx-2" href="#"><i class="bi bi-linkedin text-success"></i></a>
           </div>
-          <div class="col-md-6 col-xl-3 col-12">
-            <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
-              <i class="bi bi-award-fill me-3 text-white"></i>
-              <div>
-                <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
-                  data-purecounter-end="500">0</span>
-                <p class="text-white">برنده جایزه</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-xl-3 col-12">
-            <div class="d-flex align-items-center justify-content-center shadow p-3 bg-success">
-              <i class="bi bi-calendar-check-fill me-3 text-white"></i>
-              <div>
-                <span class="fs-3 fw-bold text-primary purecounter text-white" data-purecounter-start="0"
-                  data-purecounter-end="600">0</span>
-                <p class="text-white">پروژه های انجام شده</p>
-              </div>
-            </div>
-          </div>
+        </div>
+
+        <div class="col-lg-2 offset-lg-1 col-6">
+          <h5>لینک ها</h5>
+          <hr>
+          <ul class="list-unstyled footer-links">
+            <li><a href="#"> <i class="bi bi-chevron-left text-success"></i> صفحه اصلی</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">خدمات</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">درباره ما</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">تماس با ما</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5>خدمات</h5>
+          <hr>
+          <ul class="list-unstyled footer-links">
+            <li><i class="bi bi-chevron-left"></i> <a href="#">لورم ایپسوم</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">لورم ایپسوم متن</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">لورم ایپسوم متن</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-2 col-6">
+          <h5>ارتباط با ما</h5>
+          <hr class="bg-success">
+          <ul class="list-unstyled footer-links">
+            <li><i class="bi bi-chevron-left"></i> <a href="#">درباره ما</a></li>
+            <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">تماس با ما</a></li>
+          </ul>
         </div>
       </div>
-    </section>
-    <!-- Services -->
-    <section id="Services">
-      <div class="container">
-        <div class="row my-5 text-center">
-          <h4 class="fw-bold" data-aos="zoom-out">خدمات ارائه شده</h4>
-        </div>
-        <div class="row g-2">
-          <div class="col-md-6 col-lg-4">
-            <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
-              data-aos-delay="50">
-              <img src="images/services/1.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">کاشت</h5>
-                <p class="card-text">
-                  ما آماده کاشت هر گونه گیاه مورد علاقه شما هستیم
-                </p>
-                <a href="#" class="btn btn-success">بیشتر</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
-              data-aos-delay="50">
-              <img src="images/services/2.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">آبیاری</h5>
-                <p class="card-text">
-                  ما آبیاری گیاهان را به طور منظم انجام می دهیم
-                </p>
-                <a href="#" class="btn btn-success">بیشتر</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-4">
-            <div class="card shadow text-center hover-grow" style="width: 18rem" data-aos="fade-right"
-              data-aos-delay="50">
-              <img src="images/services/3.jpg" class="card-img-top" alt="..." />
-              <div class="card-body">
-                <h5 class="card-title">نگهداری</h5>
-                <p class="card-text">
-                  اقدامات لازم را برای نگهداری از گیاهان انجام می دهیم
-                </p>
-                <a href="#" class="btn btn-success">بیشتر</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Project Finished -->
-    <section class="overflow-hidden text-center">
-      <div class="container">
-        <div class="row my-5">
-          <h4 class="fw-bold" data-aos="zoom-out">پروژه های انجام شده</h4>
-        </div>
-        <div class="row g-2">
-          <div class="col-md-4 hover-grow">
-            <img src="./images/project finished/1.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid"
-              alt="" />
-          </div>
-          <div class="col-md-4 hover-grow">
-            <img src="./images/project finished/2.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid"
-              alt="" />
-          </div>
-          <div class="col-md-4 hover-grow">
-            <img src="./images/project finished/4.jpg" data-aos="fade-up" data-aos-delay="50" class="img-fluid"
-              alt="" />
-          </div>
-        </div>
-        <button class="btn btn-success hover-grow my-4" data-aos="fade-up" data-aos-delay="100">
-          مشاهده همه
-        </button>
-      </div>
-    </section>
-    <!-- About us -->
-    <section class="overflow-hidden" id="About_Us">
-      <div class="container">
-        <div class="row my-5 text-center">
-          <h4 class="fw-bold" data-aos="zoom-out">درباره ما</h4>
-        </div>
-        <div class="row d-flex align-items-center">
-          <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <img src="./images/About us/1.jpg" alt="About us" class="img-fluid rounded-circle pic-about" />
-          </div>
-          <div class="col-md-6" data-aos="fade-right" data-aos-delay="400">
-            <div class="row">
-              <h4 class="navbar-brand fs-2 text-center" href="#">
-                PLANTS CARE
-              </h4>
-              <p class="text-start">
-                ما در این مجموعه عملیات کاشت، آبیاری و انواع اقدامات لازم برای
-                .نگهداری گیاهان می پردازیم تمامی عملیاتی که برای نگهداری گیاهان
-                انجام می شود بر طبق استانداردهای لازم انجام می شود.
-              </p>
-              <p class="text-start">
-                .در این مجموعه بیش از 50 پروژه موفق داشته ایم ما آماده ارائه
-                انواع خدمات برای گیاهانتان هستیم از کاشت گیاهان تا مراقبت از آن
-                ها را انجام می دهیم
-              </p>
-              <p class="text-start">
-                ما این اطمینان را به شما می دهیم که بهترین خدمات را به شما ارائه
-                دهیم حتی در صورت تمایلتان می توانیم به صورت حضوری در منزلتان به
-                ارائه خدمات بپردازیم.
-              </p>
-              <p class="text-start">
-                به ما اعتماد کنیم و بهترین خدمات را از ما دریافت کنید
-              </p>
-              <div class="col-12 text-center">
-                <button class="btn btn-success hover-grow">بیشتر</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Comments -->
-    <section class="comments d-flex align-items-center  mt-5">
-
-      <div class="container  my-5 ">
-        <div class="row text-success text-center">
-          <h1 class="fs-3 fw-bold"> نظرات کاربران </h1>
-        </div>
-        <div class="row">
-          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="carousel-card rounded text-center p-4">
-                  <img width="120" class="img-fluid rounded-circle" src="./images/comments/1.jpg" alt="">
-                  <div class="mt-3">
-                    <h4 class="fw-bold">لورم ایپسوم</h4>
-                  </div>
-                  <p class="lh-lg">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                  </p>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-card rounded text-center p-4">
-                  <img width="120" class="img-fluid rounded-circle" src="./images/comments/2.jpg" alt="">
-                  <div class="mt-3">
-                    <h4 class="fw-bold">لورم ایپسوم</h4>
-                  </div>
-                  <p class="lh-lg">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                  </p>
-                </div>
-              </div>
-
-              <div class="carousel-item">
-                <div class="carousel-card rounded text-center p-4">
-                  <img width="120" class="img-fluid rounded-circle" src="./images/comments/3.jpg" alt="">
-                  <div class="mt-3">
-                    <h4 class="fw-bold">لورم ایپسوم</h4>
-                  </div>
-                  <p class="lh-lg">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان
-                    گرافیک است.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="carousel-buttons text-center mt-4">
-              <button class="btn btn-outline-success" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev">
-                <i class="bi bi-arrow-right"></i>
-              </button>
-              <button class="btn btn-outline-success me-2" type="button" data-bs-target="#carouselExampleControls"
-                data-bs-slide="next">
-                <i class="bi bi-arrow-left"></i>
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Contacts -->
-    <section class="bg-success d-flex align-items-center" id="Contact_Us">
-      <div class="container bg-light my-5 p-5 rounded-3">
-        <div class="row text-success text-center">
-          <h1 class="fs-3 fw-bold"> تماس با ما </h1>
-        </div>
-        <div class="row">
-          <form action="#" class="contact-form">
-            <div class="row  gy-4">
-              <div class="col-md-6">
-                <label class="form-label">نام</label>
-                <input class="form-control" type="text">
-              </div>
-
-              <div class="col-md-6">
-                <label class="form-label">ایمیل</label>
-                <input class="form-control" type="email">
-              </div>
-
-              <div class="col-md-12">
-                <label class="form-label">موضوع</label>
-                <input class="form-control" type="email">
-              </div>
-
-              <div class="col-md-12">
-                <label class="form-label">متن پیام</label>
-                <textarea class="form-control" rows="2"></textarea>
-              </div>
-
-              <div class="col-md-12 text-center my-5">
-                <button class="btn btn-success hover-grow">ارسال پیام</button>
-              </div>
-            </div>
-          </form>
-
-        </div>
-      </div>
-    </section>
-    <!-- footer -->
-    <footer class="footer bg-light">
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-5">
-            <h4 class="navbar-brand text-success fs-3" href="#">PLANTS CARE</h4>
-            <p>لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است.</p>
-            <div class="social-links">
-              <a href="#"><i class="bi bi-twitter text-success"></i></a>
-              <a class="mx-2" href="#"><i class="bi bi-facebook text-success"></i></a>
-              <a href="#"><i class="bi bi-instagram text-success"></i></a>
-              <a class="mx-2" href="#"><i class="bi bi-linkedin text-success"></i></a>
-            </div>
-          </div>
-
-          <div class="col-lg-2 offset-lg-1 col-6">
-            <h5>لینک ها</h5>
-            <hr>
-            <ul class="list-unstyled footer-links">
-              <li><a href="#"> <i class="bi bi-chevron-left text-success"></i> صفحه اصلی</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">خدمات</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">درباره ما</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">تماس با ما</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6">
-            <h5>خدمات</h5>
-            <hr>
-            <ul class="list-unstyled footer-links">
-              <li><i class="bi bi-chevron-left"></i> <a href="#">لورم ایپسوم</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">لورم ایپسوم متن</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">لورم ایپسوم متن</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-2 col-6">
-            <h5>ارتباط با ما</h5>
-            <hr class="bg-success">
-            <ul class="list-unstyled footer-links">
-              <li><i class="bi bi-chevron-left"></i> <a href="#">درباره ما</a></li>
-              <li class="mt-2"><i class="bi bi-chevron-left text-success"></i> <a href="#">تماس با ما</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      <div class="container-fluid text-center py-4 ">
-        <h5 class="navbar-brand text-success " href="#">PLANTS CARE</h5>
-        <p>ارائه دهنده خدمات مربوط به گیاهان</p>
-      </div>
-    </footer>
-  
+    </div>
+    <div class="container-fluid text-center py-4 ">
+      <h5 class="navbar-brand text-success " href="#">PLANTS CARE</h5>
+      <p>ارائه دهنده خدمات مربوط به گیاهان</p>
+    </div>
+  </footer>
+  <script>
+    const preloader = document.getElementById('preloader');
+    function preloaderFunction() {
+      preloader.style.display = 'none';
+    }
+  </script>
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
-  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
   <script>
     new PureCounter();
   </script>
-  <script src="js/aos.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script>
     AOS.init();
   </script>
-  <script src="js/main.js"></script>
+
 </body>
 
 </html>
